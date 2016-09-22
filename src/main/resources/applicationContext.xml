@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+
+	xmlns:util="http://www.springframework.org/schema/util">
+
+	<context:component-scan base-package="com.bjgreenchem.production.cost">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<context:property-placeholder location="classpath*:conf/*.properties" />
+	
+	<!-- <bean id="propertiesConfig" -->
+	<!-- class="org.springframework.beans.factory.config.PropertiesFactoryBean"> -->
+	<!-- <property name="locations"> -->
+	<!-- <list> -->
+	<!-- <value>classpath:/system.properties</value> -->
+	<!-- <value>classpath:/processConfig.properties</value> -->
+	<!-- <value>classpath:/redis.properties</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- <bean id="placeholderConfigurer" -->
+	<!-- class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"> -->
+	<!-- <property name="properties" ref="propertiesConfig" /> -->
+	<!-- </bean> -->
+
+	<import resource="classpath:spring-db.xml" />
+</beans>
