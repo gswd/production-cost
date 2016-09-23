@@ -14,7 +14,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<context:property-placeholder location="classpath*:conf/*.properties" />
+	<context:property-placeholder location="classpath*:*.properties" />
 	
 	<!-- <bean id="propertiesConfig" -->
 	<!-- class="org.springframework.beans.factory.config.PropertiesFactoryBean"> -->

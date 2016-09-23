@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
+		<!-- 多个配置文件用逗号隔开 -->
 		<param-value>
             classpath:/applicationContext.xml
         </param-value>

@@ -57,14 +57,18 @@
 			<version>${spring.version}</version>
 		</dependency>
 
- <!--spring-aop依赖-->
+ 		<!--spring-aop依赖-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.2</version>
         </dependency>
 		
-
+		<dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.2</version>
+        </dependency>
 
 		<!-- <dependency> -->
 		<!-- <groupId>org.slf4j</groupId> -->
@@ -107,12 +111,12 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.4.0</version>
 		</dependency>
+		<!--mybatis框架 的子模块，用来提供与Spring无缝集成 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.3.0</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
