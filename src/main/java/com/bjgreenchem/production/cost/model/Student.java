@@ -1,7 +1,16 @@
 package com.bjgreenchem.production.cost.model;
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "students")
 public class Student {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer studId;
     private String name;
     private String email;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjgreenchem.production.cost.dao.StudentMapper">
+	<select id="getStudent" parameterType="student"
+		resultType="com.bjgreenchem.production.cost.model.Student">
+		SELECT stud_id studId, name name, dob, phone, email FROM students
+		
+		<where>
+			<if test="studId != null">
+				stud_id=#{studId}
+			</if>
+			
+			<if test="name != null">
+				and name = #{name}
+			</if>
+		</where>
+		
+	</select>
+	
+	<insert id="insertStudent" parameterType="student">
+		INSERT INTO students (NAME, email, dob, phone) 
+		VALUES
+		  (
+		    #{name},
+		    #{email},
+		    #{dob},
+		    #{phone}
+		  ) ;
+	</insert>
+</mapper>
