@@ -77,7 +77,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.**.dao" />
 		<property name="markerInterface" value="tk.mybatis.mapper.common.Mapper" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+<!-- 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" /> -->
 	</bean>
 
 	<!-- <bean id="studentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
