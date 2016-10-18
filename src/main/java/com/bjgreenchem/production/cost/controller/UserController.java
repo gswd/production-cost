@@ -1,5 +1,8 @@
 package com.bjgreenchem.production.cost.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,11 +19,12 @@ public class UserController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
+		logger.info("haha");
 
 		logger.info("POST /t/user/login   login() ...");
-
 		return "hello";
 
 	}
+
 
 }
