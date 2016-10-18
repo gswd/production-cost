@@ -31,6 +31,10 @@
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
 		<property name="cacheManager" ref="ehcache" />
 	</bean>
+	<!-- 配置基于redis的缓存管理器 -->
+<!-- 	<bean id="cacheManager" class="org.springframework.data.redis.core.RedisTemplate"> -->
+<!-- 		<property name="cacheManager" ref="ehcache" /> -->
+<!-- 	</bean> -->
 	
 	<cache:annotation-driven cache-manager="cacheManager" />
 
