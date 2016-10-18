@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -22,20 +21,21 @@
 	<context:property-placeholder location="classpath*:*.properties" />
 
 	<!-- 安装EhCache -->
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="classpath:ehcache.xml" />
-		<property name="shared" value="false" />
-	</bean>
-	
+	<!-- <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"> -->
+	<!-- <property name="configLocation" value="classpath:ehcache.xml" /> -->
+	<!-- <property name="shared" value="false" /> -->
+	<!-- </bean> -->
+
 	<!-- 配置基于EhCache的缓存管理器 -->
-	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-		<property name="cacheManager" ref="ehcache" />
-	</bean>
+	<!-- <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"> -->
+	<!-- <property name="cacheManager" ref="ehcache" /> -->
+	<!-- </bean> -->
+
 	<!-- 配置基于redis的缓存管理器 -->
-<!-- 	<bean id="cacheManager" class="org.springframework.data.redis.core.RedisTemplate"> -->
-<!-- 		<property name="cacheManager" ref="ehcache" /> -->
-<!-- 	</bean> -->
-	
+	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+		<constructor-arg name="redisOperations" ref="redisTemplate"/>
+	</bean>
+
 	<cache:annotation-driven cache-manager="cacheManager" />
 
 
@@ -55,4 +55,5 @@
 	<!-- </bean> -->
 
 	<import resource="classpath:spring-db.xml" />
+	<import resource="classpath:redis-api.xml" />
 </beans>
