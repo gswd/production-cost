@@ -60,11 +60,24 @@
 	</bean>
 
 
-	<bean id="sqlSessionFactory" name="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.bjgreenchem.production.cost.model" />
 		<property name="configLocation" value="classpath:mybatis-conf.xml" />
+
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageHelper">
+					<property name="properties">
+						<value>
+							dialect=mysql
+							pageSizeZero=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+
 	</bean>
 
 	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> -->
@@ -77,7 +90,8 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.**.dao" />
 		<property name="markerInterface" value="tk.mybatis.mapper.common.Mapper" />
-<!-- 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" /> -->
+		<!-- <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" 
+			/> -->
 	</bean>
 
 	<!-- <bean id="studentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
